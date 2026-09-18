@@ -878,9 +878,7 @@ def test_source_language_lang_attr(app: SphinxTestApp) -> None:
     assert 'lang' not in extract_element(doctree, 0, 2)
 
     # the attribute reaches the HTML output
-    result = (app.outdir / 'translation_progress.html').read_text(
-        encoding='utf8'
-    )
+    result = (app.outdir / 'translation_progress.html').read_text(encoding='utf8')
     assert '<p class="untranslated" lang="en">' in result
     assert result.count(' lang="en"') >= 4
 
